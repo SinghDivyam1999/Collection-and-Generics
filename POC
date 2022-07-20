@@ -1,0 +1,197 @@
+//ArrayList POC
+package com.monocept.poc;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+public class ArraListPoc {
+
+	public static void main(String[] args) {
+		/*
+		 * ArrayList implements clonable , iteratable<E>
+		 * ,collections<E>,List<E>,Random Access
+		 */
+
+//Syntax for array list
+		ArrayList<String> employee = new ArrayList<>();
+
+//add() -->Add elements in the ArrayList
+		employee.add("Manager");
+		employee.add("Accountant");
+		employee.add("HR");
+		employee.add("Developer");
+		employee.add("Developer"); // Array list can have duplicate values
+		System.out.println(employee);
+//get() -->Use for accessing the value from the ArrayList
+		System.out.println("Using index to get first element of ArrayList: " + employee.get(0));
+
+		System.out.println("Accesing Using For each:");
+		for (String i : employee) {
+			System.out.println((i));
+		}
+//Accessing using iterator		
+		Iterator<String> iterate = employee.iterator();
+		System.out.println("Our employees are:(Using iterator) ");
+		while (iterate.hasNext()) {
+			System.out.print(iterate.next() + ",");
+		}
+		System.out.println();
+//Setting elements of ArrayList using set()
+		employee.set(3, "CEO");
+		System.out.println("Value set at index 3 is: " + employee.get(3));
+
+//Removing elements using remove()
+		employee.remove(3);
+//	ArrayList of Integer type
+		List<Integer> salary = new ArrayList<>();
+		salary.add(10000);
+		salary.add(10200);
+		salary.add(13000);
+		salary.add(10080);
+//Sorting ArrayList using Collection.sort()	
+		Collections.sort(salary);
+		System.out.println("Sorted salary is: " + salary);
+
+	}
+
+}
+
+
+
+
+
+//Duque POC
+package com.monocept.poc;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class DequeuePoc {
+
+	public static void main(String[] args) {
+// Dequeue is implemented by ArrayDequeue and LinkedList
+		Deque<Integer> age = new ArrayDeque<>();
+//Adding elements in Dequeue using offer()
+		age.offer(30);
+		age.offer(40);
+		age.offerFirst(20);// adding element to the front of the dequeue
+		age.offer(50);
+		age.offerLast(80); // adding element at the end of the dequeue
+
+//Accessing elements 
+		System.out.println("Return first element of the dequeue : " + age.peekFirst());
+		System.out.println("Return last element of the dequeue : " + age.peekLast());
+//Removing elements
+		System.out.println("Remove first element of the dequeue : " + age.pollFirst());
+		System.out.println("Remove last element of the dequeue : " + age.pollLast());
+	}
+
+}
+
+
+
+
+
+//HashSet POC
+package com.monocept.poc;
+
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class HashSetPoc {
+
+	public static void main(String[] args) {
+		HashSet<Integer> marks = new HashSet<>();  // we can also give capacity and loadFactor as argument here
+		marks.add(10);
+		marks.add(20);
+		marks.add(40);
+		marks.add(60);
+		System.out.println("HashSet values are :" + marks);
+		Iterator<Integer> iterator = marks.iterator();
+		System.out.println("HashSet values are:(Using iterator)");
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
+		marks.remove(10);
+		System.out.println("New marks list:" + marks);
+
+//Set operations union and intersections
+		HashSet<Integer> testMarks = new HashSet<>();
+		testMarks.add(60);
+		testMarks.add(7);
+		testMarks.add(8);
+//performing union operation using addAll()
+		marks.addAll(testMarks);
+		System.out.println("Our marks list after performing union operation using addAll(): \n" + marks);
+//performing intersection operation using retainAll()
+		marks.retainAll(testMarks);
+		System.out.println("Marks list after performing intersection operation using retainAll():\n" + marks);
+//Difference of set(removeAll()) and subset(containsAll()) of set 
+		HashSet<Integer> marks2 = new HashSet<>();
+		marks2.add(10);
+		marks2.add(20);
+		marks2.add(40);
+		marks2.add(60);
+		HashSet<Integer> testMarks2 = new HashSet<>();
+		testMarks2.add(60);
+		testMarks2.add(7);
+		testMarks2.add(8);
+//Difference of set		
+		marks2.removeAll(testMarks2);
+		System.out.println("marks2 list after performing difference of set: \n" + marks2);
+//subset 
+		System.out.println(marks2.containsAll(testMarks2)); // it gives boolean results
+	}
+
+}
+
+
+
+
+
+//LinkedList POC
+package com.monocept.poc;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class LinkedListPoc {
+
+	public static void main(String[] args) {
+//Creating a LinkedList of name animal
+		LinkedList<String> animal = new LinkedList<>();
+		animal.add("Cat");
+		animal.add("Dog");
+		animal.add("Rat");
+		animal.add("Cow");
+		animal.add(4, "Pig"); // Index works for linked list.
+		System.out.println("Animal in our LinkedList are: " + animal);
+//Accessing elements of linked list by index
+		System.out.println("Element at index 0 is: " + animal.get(0));
+		for (String Animal : animal) {
+			System.out.println(Animal);
+		}
+//Setting new values to index 
+		animal.set(2, "Horse");
+		System.out.println("New list: " + animal);
+//Removing elements from the index
+		animal.remove(1);
+		System.out.println("List after deleting the element : " + animal);
+// Using iterator for accessing value
+		Iterator<String> Animal = animal.iterator();
+		System.out.println("Our animal list :(Using iterator)");
+		while (Animal.hasNext()) {
+			System.out.println(Animal.next());
+		}
+		System.out.println(animal.contains("Cat"));
+	}
+
+}
+
+
+
+
+
+
